@@ -10,6 +10,10 @@ server.use(helmet());
 server.use(express.json());
 server.use(cors());
 
+server.get('/', (req, res) => {
+    res.status(200).json({message: "Server is ready"})
+})
+
 server.post('/', async (req, res) => {
     let { username } = req.body;
     const token = generateToken(username);
