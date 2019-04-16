@@ -3,12 +3,17 @@ const helmet = require('helmet');
 const jwt = require('jsonwebtoken');
 const secret = require('../api/secrets.js').jwtKey;
 const cors = require('cors');
+const gamesRouter = require('../db2018/db2018-router.js');
 
 const server = express();
 
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
+
+server.use('/api/games', gamesRouter);
+
+
 
 server.get('/', (req, res) => {
     res.status(200).json({message: "Server is ready"})
