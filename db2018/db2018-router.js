@@ -6,7 +6,7 @@ router.post('/', (req, res) => {
     let dummyArray = [];
 
     for(let i = 1; i <= 30; i++) {
-        dummyArray.push((Math.random() * 2) - 1);
+        dummyArray.push(Math.round((Math.random() * 181)));
     }
     
     let dummyOutlook = 0;
@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
         dummyOutlook = dummyOutlook + dummyArray[i];
     }
     console.log(dummyArray);
-    dummyOutlook = dummyOutlook/10;
+    dummyOutlook = Math.round(dummyOutlook/30);
     console.log('Dummy Outlook', dummyOutlook)
 
     let response = ({dummyArray, dummyOutlook});
