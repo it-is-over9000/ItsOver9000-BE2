@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
     //     dummyArray.push(Math.round((Math.random() * 181)));
     // }
     
-    let dummyOutlook = Math.round((Math.random() * 181));
+    let dummyOutlook = Math.round((Math.random() * 70) + 51);
 
     // for(let i = 0; i < dummyArray.length; i++) {
     //     dummyOutlook = dummyOutlook + dummyArray[i];
