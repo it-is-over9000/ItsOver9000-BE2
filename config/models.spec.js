@@ -41,4 +41,19 @@ describe('Users model', () => {
         expect(users[0]).toEqual({ id: 1, username: 'TestName', password: 'pass' })
     })
 
+
+    it('should get the users database', async () => {
+        let users = await Users.find();
+
+        expect(users).toEqual([]);
+    })
+
+    it('should get a specific user', async () => {
+        await Users.add({ username: 'TestName', password: 'pass' });
+        await Users.add({ username: 'NewerName', password: 'pass' });
+
+        let id = 2;
+        let user = await Users.findBy({ id });
+        expect(user[0]).toEqual({ id: 2, username: 'NewerName', password: 'pass' })
+    })
 })
